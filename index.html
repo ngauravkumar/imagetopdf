@@ -45,18 +45,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
-  $('#form_submit').submit(function () {
-    $.ajax({
-      url: $('#form_submit').attr('action'),
-      type: 'POST',
-      data: $('#form_submit').serialize(),
-      success: function () {
-        console.log('form submitted.');
-      }
-    });
-    return false;
-  });
-
   const range = document.getElementById("range");
 
   // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
