@@ -15,7 +15,8 @@
     <br>
     <form action="/merge" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/jpg, image/jpeg"> 
+        <input type="file" name="files" multiple required class="form-control" id="fileElem"
+          accept="image/jpg, image/jpeg" onchange="handleFiles(this.files)">
       </div>
       <div class="field">
         <label for="cowbell">Page Size</label>
@@ -74,6 +75,24 @@
       $('.option-sidebar').show();
     }
   });
+
+  function handleFiles(files) {
+    var imgs = document.querySelectorAll('img');
+    //Image element undex
+    let imgIndex = 0;
+
+    //Loop through all the images
+    for (var i = 0; i < files.length; i++) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('<img src="' + e.target.result + '" id="imgg0" width="10%" class="imgg">').appendTo('#gallery');
+        imgIndex++;
+      }
+
+      reader.readAsDataURL(files[i]);
+    }
+  }
 </script>
 
 </html>
