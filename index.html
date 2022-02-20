@@ -7,9 +7,9 @@
 </head>
 
 <body>
-  <% if(message.success){ %>
-    <div class="alert alert-success" role="alert">
-      <%= message.success %>
+  <% if (message) { %>
+    <div class="alert alert-info">
+      <%= message %>
     </div>
     <% } %>
       <div class="container">
