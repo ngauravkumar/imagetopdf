@@ -15,7 +15,7 @@
     <br>
     <form action="/merge" method="post" enctype="multipart/form-data">
       <div class="form-group">
-        <input type="file" name="files" multiple required class="form-control">
+        <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/jpg, image/jpeg"> 
       </div>
       <div class="field">
         <label for="cowbell">Page Size</label>
@@ -64,6 +64,15 @@
       scale(value, min, max, 10, -10);
     label.style.left = `${left}px`;
     label.innerHTML = value;
+  });
+
+  $("#fileElem").change(function () {
+    var fileExtension = ['jpeg', 'jpg'];
+    if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+      alert("Only formats are allowed : " + fileExtension.join(', '));
+    } else {
+      $('.option-sidebar').show();
+    }
   });
 </script>
 
