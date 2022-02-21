@@ -61,9 +61,12 @@
         <div class="select-from">
           <form action="/merge" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
+              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*"
+                onchange="image_select()">
             </div>
-           
+            <div class="card-body d-flex flex-wrap justify-content-start" id="container">
+
+            </div>
             <!-- <div id="gallery">
             </div> -->
             <div class="field">
@@ -139,31 +142,70 @@
 
 </html>
 <script>
+  var images = [];
+  function image_select() {
+    var image = document.getElementById('image').files;
+    for (i = 0; i < image.length; i++) {
+      images.push({
+        "name": image[i].name,
+        "url": URL.createObjectURL(image[i]),
+        "file": image[i],
+      })
+    }
+    document.getElementById('container').innerHTML = image_show();
+  }
 
-  $("#fileElem").on("change", function (e) {
-    var file = e.target.files,
-      imagefiles = $("#fileElem")[0].files;
-    var i = 0;
-    $.each(imagefiles, function (index, value) {
-      var f = file[i];
-      var fileReader = new FileReader();
-      fileReader.onload = (function (e) {
+  function image_show() {
+    var image = "";
+    images.forEach((i) => {
+      image += `<div class="image_container d-flex justify-content-center position-relative">
+                  <img src="`+ i.url + `" alt="Image">
+                  <span class="position-absolute" onclick="delete_image(`+ images.indexOf(i) + `)">&times;</span>
+              </div>`;
+    })
+    return image;
+  }
+  function delete_image(e) {
+    images.splice(e, 1);
+    document.getElementById('container').innerHTML = image_show();
 
-        $('<div class="pip col-sm-3 col-4 boxDiv" align="center" style="margin-bottom: 20px;">' +
-          '<img style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">' +
-          '<p style="word-break: break-all;">' + value.name + '</p>' +
-          '<p class="cross-image remove">Remove</p>' +
-          '<input type="hidden" name="files[]" value="' + e.target.result + '">' +
-          '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
-          '</div>').insertAfter("#fileElem");
-        $(".remove").click(function () {
-          $(this).parent(".pip").remove();
-        });
-      });
-      fileReader.readAsDataURL(f);
-      i++;
-    });
-  });
+    const dt = new DataTransfer()
+    const input = document.getElementById('image')
+    const { files } = input
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      if (e !== i)
+        dt.items.add(file);
+    }
+
+    input.files = dt.files;
+    console.log(document.getElementById('image').files);
+  }
+  // $("#fileElem").on("change", function (e) {
+  //   var file = e.target.files,
+  //     imagefiles = $("#fileElem")[0].files;
+  //   var i = 0;
+  //   $.each(imagefiles, function (index, value) {
+  //     var f = file[i];
+  //     var fileReader = new FileReader();
+  //     fileReader.onload = (function (e) {
+
+  //       $('<div class="pip col-sm-3 col-4 boxDiv" align="center" style="margin-bottom: 20px;">' +
+  //         '<img style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">' +
+  //         '<p style="word-break: break-all;">' + value.name + '</p>' +
+  //         '<p class="cross-image remove">Remove</p>' +
+  //         '<input type="hidden" name="files[]" value="' + e.target.result + '">' +
+  //         '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
+  //         '</div>').insertAfter("#fileElem");
+  //       $(".remove").click(function () {
+  //         $(this).parent(".pip").remove();        
+  //       });
+  //     });
+  //     fileReader.readAsDataURL(f);
+  //     i++;
+  //   });
+  // });
 
 
 
