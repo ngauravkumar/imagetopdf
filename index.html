@@ -1,44 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Images to PDF Web App in Node and Express</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Convert</title>
+  <meta property="og:image" content="">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="icon" type="image/png" sizes="32x32" href="front/images/favicon.png">
+  <link rel="stylesheet" href="front/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="front/css/animate.css" type="text/css">
+  <link rel="stylesheet" href="front/css/owl.carousel.min.css" type="text/css">
+  <link rel="stylesheet" href="front/css/jquery-ui.css" type="text/css">
+
+  <!-- fonts -->
+  <link rel="stylesheet" href="front/css/fontawesome.css" type="text/css">
+  <link rel="stylesheet" href="front/css/remixicon.css" type="text/css">
+  <link rel="stylesheet" href="front/style.css" type="text/css">
+  <link rel="stylesheet" href="front/css/responsive.css" type="text/css">
+  <link href="front/drag-and-drop/dist/imageuploadify.min.css" rel="stylesheet"><br type="_moz">
 </head>
 
 <body>
-  <div class="container">
-    <br><br>
-    <h1 class="text-center">
-      Convert Image to PDF
-    </h1>
-    <br>
-    <form action="/merge" method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <input type="file" name="files" multiple required class="form-control">
+  <div class="site-wrapper">
+    <header class="headaer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-3 col-xs-6 align-self-center">
+            <div class="site-logo">
+              <a href="/"><img src="front/images/logo.png" alt="Logo"></a>
+            </div>
+          </div>
+          <div class="col-lg-9 col-sm-9 col-xs-6">
+            <div class="menu-right">
+              <nav class="menu">
+                <ul class="list-style">
+                  <li><a href="#">PDF to DOC</a></li>
+                  <li><a href="#">DOC to PDF</a></li>
+                  <li><a href="#">JPG to PDF</a></li>
+                  <li><a href="#">PDF to PNG</a></li>
+                  <li><a href="#">PDF Compressor</a></li>
+                  <li><a href="blog.php">Blog</a></li>
+                </ul>
+                <div class="google_translate_element" id="google_translate_element"></div>
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="field">
-        <label for="cowbell">Page Size</label>
-        <select class="form-control" name="page_size">
-          <option value="A4" selected>A4</option>
-          <option value="A5">A5</option>
-          <option value="A3">A3</option>
-        </select>
-      </div><!-- field -->
-      <div class="field">
-        <label>Select Size</label>
-        <input type="range" name="range" id="range" min="10" max="100" step="10" value="90" />
-        <label for="range">90</label>
-        <label for="cowbell">Image Quality</label>
+    </header>
+
+    <div class="main-section bg-light convert-section">
+      <div class="container">
+        <div class="main-title text-center mb-3">
+          <h1 class="mb-2">Images To PDF Converter</h1>
+          <p class="fs-20">Convert JPG images to PDF in seconds. Easily adjust orientation and margins.</p>
+        </div>
+        <div class="select-from">
+          <form action="/merge" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
+            </div>
+            <!-- <div id="gallery">
+            </div> -->
+            <div class="field">
+              <label for="cowbell">Page Size</label>
+              <select class="form-control" name="page_size">
+                <option value="A4" selected>A4</option>
+                <option value="A5">A5</option>
+                <option value="A3">A3</option>
+              </select>
+            </div><!-- field -->
+            <div class="field">
+              <label>Select Size</label>
+              <input type="range" name="range" id="range" min="10" max="100" step="10" value="90" />
+              <label for="range">90</label>
+              <label for="cowbell">Image Quality</label>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-danger btn-block">
+                Convert to PDF
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="adv-box text-center mb-3">
+          <img src="front/images/adv-1.png" alt="Adv">
+        </div>
       </div>
-      <div class="form-group">
-        <button class="btn btn-danger btn-block">
-          Convert to PDF
-        </button>
+
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-menu">
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul class="list-style mb-0">
+                <li><a href="#">Terms of Use </a></li>
+                <li><a href="privacy-policy.php"> Privacy policy </a></li>
+                <li><a href="#"> Blog </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12 align-self-center">
+              <p class="mb-0">© SIA Webby</p>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </form>
-  </div>
+    </footer>
+
+
+    <a href="javascript:void(0);" id="scroll" class="back-to-top"><span>
+        <i class="ri-arrow-up-line"></i></span>
+    </a>
+
+
+
+    <script src="front/js/jquery.min.js"></script>
+    <script src="front/js/bootstrap.min.js"></script>
+    <script src="front/js/bootstrap.bundle.min.js"></script>
+    <script src="front/js/owl.carousel.js"></script>
+    <script src="front/js/wow.js"></script>
+    <script src="front/js/custom.js"></script>
+
+    <script src="front/js/jquery-ui.min.js"></script>
+    <script src="front/js/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+      }
+    </script>
+    <script src="front/drag-and-drop/imageuploadify.js"></script>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</html>
+<script>
+  // $('input[type="file"]').imageuploadify();
+
+  const range = document.getElementById("range");
+
+  // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+  const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+  };
+
+  range.addEventListener("input", (e) => {
+    const value = +e.target.value;
+    const label = e.target.nextElementSibling;
+    const rangeWidth = getComputedStyle(e.target).getPropertyValue("width");
+    const labelWidth = getComputedStyle(label).getPropertyValue("width");
+    // remove px
+    const numWidth = +rangeWidth.substring(0, rangeWidth.length - 2);
+    const numLabelWidth = +labelWidth.substring(0, labelWidth.length - 2);
+    const max = +e.target.max;
+    const min = +e.target.min;
+    const left =
+      value * (numWidth / max) -
+      numLabelWidth / 2 +
+      scale(value, min, max, 10, -10);
+    label.style.left = `${left}px`;
+    label.innerHTML = value;
+  });
+
+  // $("#fileElem").change(function () {
+  //   var fileExtension = ['jpeg', 'jpg'];
+  //   if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+  //     alert("Only formats are allowed : " + fileExtension.join(', '));
+  //   } else {
+  //     $('.option-sidebar').show();
+  //   }
+  // });
+
+  // function handleFiles(files) {
+  //   var imgs = document.querySelectorAll('img');
+  //   //Image element undex
+  //   let imgIndex = 0;
+
+  //   //Loop through all the images
+  //   for (var i = 0; i < files.length; i++) {
+  //     var reader = new FileReader();
+
+  //     reader.onload = function (e) {
+  //       $('<img src="' + e.target.result + '" id="imgg0" width="10%" class="imgg">').appendTo('#gallery');
+  //       imgIndex++;
+  //     }
+
+  //     reader.readAsDataURL(files[i]);
+  //   }
+  // }
+</script>
 
 </html>
