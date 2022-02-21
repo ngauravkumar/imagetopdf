@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + "/index.html")
 })
 
-app.post('/merge', upload.array('images', 100), (req, res) => {
+app.post('/merge', upload.array('files', 100), (req, res) => {
   list = ""
   if (req.files) {
 
