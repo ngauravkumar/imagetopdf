@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="front/css/remixicon.css" type="text/css">
   <link rel="stylesheet" href="front/style.css" type="text/css">
   <link rel="stylesheet" href="front/css/responsive.css" type="text/css">
+  <link rel="stylesheet" href="front/style_file.css" type="text/css">
 </head>
 
 <body>
@@ -59,9 +60,25 @@
         </div>
         <div class="select-from">
           <form action="/merge" method="post" enctype="multipart/form-data">
-            <div class="form-group">
+            <!-- <div class="form-group">
               <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
+            </div> -->
+
+            <div class="upload-wrapper">
+              <label>
+                <input type="file" name="files" id="files" multiple accept="image/*">
+                <p>Drop your files here. <br>or <a>Browse</a></p>
+              </label>
             </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="mb-0">Uploaded Files</h2>
+                </div>
+              </div>
+              <output id="image-gallery"></output>
+            </div>
+
             <!-- <div id="gallery">
             </div> -->
             <div class="field">
@@ -127,6 +144,7 @@
 
     <script src="front/js/jquery-ui.min.js"></script>
     <script src="front/js/jquery.ui.touch-punch.min.js"></script>
+    <script src="front/script.js"></script>
     <script type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
