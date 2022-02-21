@@ -13,7 +13,7 @@
       Convert Image to PDF
     </h1>
     <br>
-    <form action="" method="post" enctype="multipart/form-data" id="form_submit">
+    <form action="/merge" method="post" enctype="multipart/form-data" id="form_submit">
       <div class="form-group">
         <input type="file" name="files" multiple required class="form-control" id="fileElem"
           accept="image/jpg, image/jpeg" onchange="handleFiles(this.files)">
@@ -44,21 +44,6 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-
-  $("#form_submit").on("submit", function () {
-    $.ajax({
-      url: '/merge',
-      type: 'POST',
-      cache: false,
-      data: $("#form_submit").serialize(),
-      success: function (data) {
-        alert('Success!')
-      }
-      , error: function (jqXHR, textStatus, err) {
-        alert('text status ' + textStatus + ', err ' + err)
-      }
-    });
-  });
 
   const range = document.getElementById("range");
 
