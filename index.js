@@ -21,7 +21,6 @@ const fs = require('fs')
 
 const multer = require('multer')
 
-
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public/uploads");
@@ -67,6 +66,10 @@ app.get('/', (req, res) => {
 app.post('/merge', upload.array('files', 100), (req, res) => {
   list = ""
   if (req.files) {
+
+    var range_value = parseFloat(req.body.range);
+    var page_size = req.body.page_size;
+
     req.files.forEach(file => {
       console.log(file.path)
 
@@ -76,7 +79,7 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
     console.log(list)
 
-    exec(`magick convert ${list} ${outputFilePath}`, (err, stdout, stderr) => {
+    exec(`magick convert ${list} -quality ${range_value} -page ${page_size} ${outputFilePath}`, (err, stdout, stderr) => {
       if (err) throw err
 
       res.download(outputFilePath, (err) => {
@@ -89,6 +92,8 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
         });
 
         fs.unlinkSync(outputFilePath)
+
+        res.render('index', { message: req.flash('PDF Generate Successfully, And Download Automatically..') });
       })
     })
   }
