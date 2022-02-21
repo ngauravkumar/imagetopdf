@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -58,7 +59,7 @@
           <p class="fs-20">Convert JPG images to PDF in seconds. Easily adjust orientation and margins.</p>
         </div>
         <div class="select-from">
-          <form action="/merge" method="post" enctype="multipart/form-data" id="form_submit">
+          <form action="/merge" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
             </div>
@@ -79,7 +80,7 @@
               <label for="cowbell">Image Quality</label>
             </div>
             <div class="form-group">
-              <button class="btn btn-danger btn-block" type="submit">
+              <button class="btn btn-danger btn-block">
                 Convert to PDF
               </button>
             </div>
