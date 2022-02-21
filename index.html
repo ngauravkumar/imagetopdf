@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="front/css/remixicon.css" type="text/css">
   <link rel="stylesheet" href="front/style.css" type="text/css">
   <link rel="stylesheet" href="front/css/responsive.css" type="text/css">
-  <link rel="stylesheet" href="front/style_file.css" type="text/css">
+  <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link type="text/css" rel="stylesheet" href="front/drag-drop/image-uploader.min.css">
 </head>
 
 <body>
@@ -63,21 +64,7 @@
             <!-- <div class="form-group">
               <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
             </div> -->
-
-            <div class="upload-wrapper">
-              <label>
-                <input type="file" name="files" id="files" multiple accept="image/*">
-                <p>Drop your files here. <br>or <a>Browse</a></p>
-              </label>
-            </div>
-            <div class="col-12">
-              <div class="row">
-                <div class="col-12">
-                  <h2 class="mb-0">Uploaded Files</h2>
-                </div>
-              </div>
-              <output id="image-gallery"></output>
-            </div>
+            <div class="input-images"></div>
 
             <!-- <div id="gallery">
             </div> -->
@@ -141,10 +128,9 @@
     <script src="front/js/owl.carousel.js"></script>
     <script src="front/js/wow.js"></script>
     <script src="front/js/custom.js"></script>
-
+    <script type="text/javascript" src="front/drag-drop/image-uploader.min.js"></script>
     <script src="front/js/jquery-ui.min.js"></script>
     <script src="front/js/jquery.ui.touch-punch.min.js"></script>
-    <script src="front/script.js"></script>
     <script type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
@@ -156,7 +142,7 @@
 
 </html>
 <script>
-
+  $('.input-images').imageUploader();
   const range = document.getElementById("range");
 
   // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
