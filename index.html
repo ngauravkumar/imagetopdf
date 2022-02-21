@@ -61,7 +61,7 @@
         <div class="select-from">
           <form action="/merge" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
+              <input type="file" name="file" multiple required class="form-control" id="fileElem" accept="image/*">
             </div>
            
             <!-- <div id="gallery">
@@ -153,7 +153,7 @@
           '<img style="width: 120px; height: 100px;" src="' + e.target.result + '" class="prescriptions">' +
           '<p style="word-break: break-all;">' + value.name + '</p>' +
           '<p class="cross-image remove">Remove</p>' +
-          '<input type="hidden" name="image[]" value="' + e.target.result + '">' +
+          '<input type="hidden" name="files[]" value="' + e.target.result + '">' +
           '<input type="hidden" name="imageName[]" value="' + value.name + '">' +
           '</div>').insertAfter("#fileElem");
         $(".remove").click(function () {
