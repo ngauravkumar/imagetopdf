@@ -144,7 +144,7 @@
 <script>
   var images = [];
   function image_select() {
-    var image = document.getElementById('image').files;
+    var image = document.getElementById('fileElem').files;
     for (i = 0; i < image.length; i++) {
       images.push({
         "name": image[i].name,
@@ -170,7 +170,7 @@
     document.getElementById('container').innerHTML = image_show();
 
     const dt = new DataTransfer()
-    const input = document.getElementById('image')
+    const input = document.getElementById('fileElem')
     const { files } = input
 
     for (let i = 0; i < files.length; i++) {
@@ -180,7 +180,7 @@
     }
 
     input.files = dt.files;
-    console.log(document.getElementById('image').files);
+    console.log(document.getElementById('fileElem').files);
   }
   // $("#fileElem").on("change", function (e) {
   //   var file = e.target.files,
