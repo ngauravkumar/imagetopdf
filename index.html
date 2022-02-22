@@ -175,7 +175,7 @@
   function image_show() {
     var image = "";
     images.forEach((i) => {
-      image += `<div class="image_container d-flex justify-content-center position-relative">
+      image += `<div class="image_container position-relative">
                   <img src="`+ i.url + `" alt="Image">
                   <span class="position-absolute" onclick="delete_image(`+ images.indexOf(i) + `)">&times;</span>
               </div>`;
