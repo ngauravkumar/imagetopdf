@@ -317,6 +317,7 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
     border: 1px dashed #777;
     padding: 32px 100px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .select-container input#fileElem {
