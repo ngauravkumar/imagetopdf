@@ -1,63 +1,52 @@
-# Image-Uploader
-Image-Uploader is a simple jQuery Drag & Drop Image Uploader plugin made to be used in forms, withot AJAX.
+Imageuploadify
+==============
 
-## Demo
-[Demo page here](https://christianbayer.github.io/image-uploader/)
+A simple plugin [jQuery](http://jquery.com/) to convert file (images) input to drag'n drop box with preview.
 
-## How to use it
-Import the CSS file at the `<head>` along Material Icons for the icons:
+![imageuploadify screenshot](screenshot.png)
+
+Dependencies
+============
+
+* [jQuery](http://jquery.com/)
+* [Bootstrap](http://getbootstrap.com/)
+* [Font Awesome](http://fontawesome.io/)
+
+Features
+========
+
+* Image preview.
+* Responsive (tested with Firefox 49.0.2 and Chrome 54.0).
+* Display file details (on mouse hover).
+* Delete item before uploading (click on the cross).
+* Filter files type according to the attribute "accept".
+
+Usage
+=====
+
+Create a file input:
+
 ```
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link type="text/css" rel="stylesheet" href="http://example.com/image-uploader.min.css">
-```
-Import the JS file at the end of the `<body>`, after the jQuery:
-```
-<script type="text/javascript" src="http://example.com/jquery.min.js"></script>
-<script type="text/javascript" src="http://example.com/image-uploader.js"></script>
-```
-Create a form with `enctype="multipart/form-data"` attributte:
-```
-<form action="http://example.com/post" enctype="multipart/form-data"></form>
-```
-Inside the form, create a wrapper to the plugin:
-```
-<div class="input-images"></div>
-```
-Initialize it with jQuery 
-```
-$('.input-images').imageUploader();
+<form>
+    <input name="image" type="file" multiple>
+</form>
 ```
 
-## Options
+Then use the plugin:
 
-#### label
-Type: `string`
+`$("input[name='image']").imageuploadify();`
 
-Default: `'Drag & Drop files here or click to browse'`
+* To change comment, add `placeholder` to input.
+* To support multiple file upload, add `multiple` to input.
+(The drag'n drop box support multiple files no matter if the attribute "multiple" is present or not. To avoid issues, it is better to add it.)
 
-Informative label, telling the user what to do with the draggable area.
+Todo
+====
 
-#### preloaded
-Type: `{id: number, src: string}[]`
-
-Default: `[]`
-
-Array of objects representing images that are already stored, containing an identification for that image and the source.
-
-#### imagesInputName
-Type: `string`
-
-Default: `'images'`
-
-Name of the input that will be posted, containing the files list.
-
-#### preloaded
-Type: `string`
-
-Default: `'preloaded'`
-
-Name of the inputs that will be posted, containing the preloaded images identification.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+* Video preview.
+* Test with a more complete form.
+* Auto-submit option.
+* Class custom option.
+* Different preview views option.
+* Support "multiple" attribute.
+* Add a modal box before deleting a file.
