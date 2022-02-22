@@ -320,6 +320,8 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
 }
 
 .select-container input#fileElem {
+  width: 99%;
+    height: 98%;
     position: absolute;
     top: 2px;
     left: 2px;
