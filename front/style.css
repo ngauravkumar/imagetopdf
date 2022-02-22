@@ -370,6 +370,10 @@ select.goog-te-combo {
     padding-left: calc(50% - 570px);
 }
  
+.slt-box.text-center {
+  pointer-events: none;
+}
+
 @media (min-width: 767px){ 
 .container { max-width: 100%;}
 }
