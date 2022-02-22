@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="front/style.css" type="text/css">
   <link rel="stylesheet" href="front/css/responsive.css" type="text/css">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="front/drag-drop/dist/imageuploadify.min.css" type="text/css">
 </head>
 
 <body>
@@ -62,7 +61,8 @@
         <div class="select-from">
           <form action="/merge" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*">
+              <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*"
+                onchange="image_select()">
             </div>
             <div class="card-body d-flex flex-wrap justify-content-start" id="container">
 
@@ -131,14 +131,12 @@
         new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
       }
     </script>
-    <script src="front/drag-drop/dist/imageuploadify.min.js"></script>
 </body>
 
 </html>
 <script>
-  $('input[type="file"]').imageuploadify();
 
-  // Selected image preview
+	// Selected image preview
   var images = [];
   function image_select() {
     var image = document.getElementById('fileElem').files;
@@ -180,7 +178,7 @@
     console.log(document.getElementById('fileElem').files);
   }
   // Selected image preview End
-
+  
   const range = document.getElementById("range");
 
   // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
