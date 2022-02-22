@@ -327,7 +327,6 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
     left: 2px;
     right: 2px;
     bottom: 2px;
-    width: auto;
     opacity: 0;
     z-index: 1;
 }
