@@ -95,7 +95,7 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
         fs.unlinkSync(outputFilePath)
 
-        res.render('index', { message: req.flash('PDF Generate Successfully, And Download Automatically..') });
+        //res.render('index', { message: req.flash('PDF Generate Successfully, And Download Automatically..') });
       })
     })
   }
