@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
 
 app.post('/merge', upload.array('files', 100), (req, res) => {
   list = ""
-  console.log(req.files);
+  console.log(req);
   if (req.files) {
 
     var range_value = parseFloat(req.body.range);
