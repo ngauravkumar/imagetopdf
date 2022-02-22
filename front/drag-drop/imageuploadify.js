@@ -9,14 +9,14 @@
 // Ensure that $ is referencing to jQuery.
 // window and document to slightly quicken the process.
 // To be sure that undefined is truly undefined (For ES3)
-;(function($, window, document, undefined) {
- 
+; (function ($, window, document, undefined) {
+
   // Prevent issues about browser opening file by dropping it.
-  window.addEventListener("dragover", function(e) {
+  window.addEventListener("dragover", function (e) {
     e = e || event;
     e.preventDefault();
   }, false);
-  window.addEventListener("drop", function(e) {
+  window.addEventListener("drop", function (e) {
     e = e || event;
     e.preventDefault();
   }, false);
@@ -29,7 +29,7 @@
     }
 
     // Checking all types written in accept.
-    for (let index = 1; index < mimeTypes.length; index+=3) {
+    for (let index = 1; index < mimeTypes.length; index += 3) {
 
       // image/*, audio/*, video/*
       if (mimeTypes[index + 1] === "*" &&
@@ -56,13 +56,13 @@
   }
 
   // Define the plugin imageuploadify.
-  $.fn.imageuploadify = function(opts) {
+  $.fn.imageuploadify = function (opts) {
 
     // Override default option with user's if exist.
-    const settings = $.extend( {}, $.fn.imageuploadify.defaults, opts);
+    const settings = $.extend({}, $.fn.imageuploadify.defaults, opts);
 
     // Initialize every element.
-    this.each(function() {
+    this.each(function () {
 
       // Save the current element to self to avoid conflict.
       const self = this;
@@ -125,14 +125,14 @@
       // Function to read and store files. 
       const retrieveFiles = (files) => {
 
-        for(let index = 0; index < files.length; ++index) {
+        for (let index = 0; index < files.length; ++index) {
           if (!accept || compareMimeType(result, files[index].type, /(?:\.([^.]+))?$/.exec(files[index].name)[1])) {
             // Unique number to save the image.
             const id = Math.random().toString(36).substr(2, 9);
 
             readingFile(id, files[index]);
             totalFiles.push({
-              id:   id,
+              id: id,
               file: files[index]
             });
           }
@@ -166,13 +166,13 @@
         container.css("margin-left", marginSize + "px");
 
         // Manage display/hidding details about preview files.
-        details.hover(function() {
+        details.hover(function () {
           $(this).css("opacity", "1");
         })
-        .mouseleave(function() {
-          $(this).css("opacity", "0");
-        });
-       
+          .mouseleave(function () {
+            $(this).css("opacity", "0");
+          });
+
         // If the given file in the parameter is an image.
         if (file.type && file.type.search(/image/) != -1) {
           // Associated function to a ending load
@@ -203,7 +203,7 @@
           }
           // If the file is an video file, replace the icon by an video file icon.
           else if (file.type.search(/video/) != -1) {
-            type = "<i class='fa fa-file-video-o'></i>"; 
+            type = "<i class='fa fa-file-video-o'></i>";
           }
 
           // Associated function to a ending load
@@ -226,12 +226,12 @@
         }
 
         // Delete the file from the list.
-        deleteBtn.on("click", function() {
+        deleteBtn.on("click", function () {
           $(this.parentElement).remove();
           for (let index = 0; totalFiles.length > index; ++index) {
             if (totalFiles[index].id === id) {
               totalFiles.splice(index, 1);
-              break;    
+              break;
             }
           }
         });
@@ -253,15 +253,15 @@
       }
 
       const enableMouseEvents = () => {
-          // Hide the overlay and put back the dragbox border color.
-          overlay.css("display", "none");
-          dragbox.css("border-color", "rgb(210, 210, 210)");
+        // Hide the overlay and put back the dragbox border color.
+        overlay.css("display", "none");
+        dragbox.css("border-color", "rgb(210, 210, 210)");
 
         // Enable back pointer events to capture click, hover... 
-          button.css("pointer-events", "initial");
-          addMsg.css("pointer-events", "initial");
-          addIcon.css("pointer-events", "initial");
-          imagesList.css("pointer-events", "initial");
+        button.css("pointer-events", "initial");
+        addMsg.css("pointer-events", "initial");
+        addIcon.css("pointer-events", "initial");
+        imagesList.css("pointer-events", "initial");
       }
 
       /** EVENTS  */
@@ -322,14 +322,14 @@
       });
 
       // Binding resize event to the window.
-      $(window).bind("resize", function(e) {
+      $(window).bind("resize", function (e) {
         window.resizeEvt;
         $(window).resize(function () {
           // Delete the timeout as long as the window is still resizing.
           clearTimeout(window.resizeEvt);
           // Compute and change the margin according to the size of the window after
           // 0.5 seconds after resizing.
-          window.resizeEvt = setTimeout(function() {
+          window.resizeEvt = setTimeout(function () {
             // Compute the number of box that could fit in the dragbox and the
             // margin according to it.
             const width = dragbox.width();
@@ -358,7 +358,7 @@
       });
 
       // When submitting the form.
-      $(self).closest("form").on("submit", function(event) {
+      $(self).closest("form").on("submit", function (event) {
         // Stop the original submit.
         event.stopPropagation();
         event.preventDefault(event);
@@ -380,8 +380,8 @@
           else if (!inputs[index].getAttribute("type") || ((inputs[index].getAttribute("type").toLowerCase()) !== "checkbox" && (inputs[index].getAttribute("type").toLowerCase()) !== "radio") || inputs[index].checked) {
             formData.append(inputs[index].name, inputs[index].value);
           }
-          else if ($(inputs[index]).getAttribute("type") != "file") {
-            formData.append(inputs[index].name, inputs[index].value);  
+          else if ($(inputs[index]).getAttribute("type") != "file") {
+            formData.append(inputs[index].name, inputs[index].value);
           }
         }
 
@@ -395,9 +395,10 @@
 
         // When the request has been successfully submitted, redirect to the
         // location of the form.
-        xhr.onreadystatechange = function(e) {
+        xhr.onreadystatechange = function (e) {
           if (xhr.status == 200 && xhr.readyState === XMLHttpRequest.DONE) {
             //window.location.replace(xhr.responseURL);
+            console.log(this.responseText);
           }
         }
 
