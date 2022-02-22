@@ -107,7 +107,7 @@ blockquote:before {content: "";  position: absolute;   top: 0;   right: 0;   bor
 .white-placeholder .form-control:-moz-placeholder {color:#FFF; opacity: 1;}
 
 
-.main-section{padding:40px 0px; background-size: cover !important; background-repeat: no-repeat !important; background-position: center center !important;position: relative;}
+.main-section{padding:30px 0px; background-size: cover !important; background-repeat: no-repeat !important; background-position: center center !important;position: relative;}
 .main-section .container{position:relative;}
 .main-section:before{content:""; position:absolute; left:0px; top:0px; width:100% !important; height:100% !important; background:transparent; }
 .pr-50{padding-right:50px;}
@@ -315,7 +315,7 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
 
 .select-container {
     border: 1px dashed #777;
-    padding: 32px 100px;
+    padding: 15px 100px;
     position: relative;
     margin-bottom: 20px;
 }
@@ -332,7 +332,7 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
     z-index: 1;
 }
 
-.slt-box i {font-size: 107px;color: #e5322d;line-height: 1;}
+.slt-box i {font-size: 85px;color: #e5322d;line-height: 1;}
 
 .slt-bar {
     padding: 10px 0px;
@@ -386,7 +386,7 @@ select.goog-te-combo {
 
 .page_size_new_class label { white-space: nowrap; font-weight: 600; margin-right: 20px; } 
 .select-from .field { align-items: center; } 
-div#container { display: flex; align-items: center; padding: 30px 0px; max-height: 285px; overflow: auto; } 
+div#container { display: flex; align-items: center; padding: 15px 0px; max-height: 285px; overflow: auto; } 
 #container .image_container { width: 89px;
   height: 75px !important;
   border: 2px solid #b3a8a8;
