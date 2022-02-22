@@ -351,6 +351,7 @@ ul.recent-post li:last-child { margin-bottom: 0px; }
     color: #000;
     right: 0px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 div#google_translate_element {
