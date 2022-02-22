@@ -398,7 +398,7 @@
         xhr.onreadystatechange = function (e) {
           if (xhr.status == 200 && xhr.readyState === XMLHttpRequest.DONE) {
             //window.location.replace(xhr.responseURL);
-            console.log(this.responseText);
+            console.log(xhr.responseText);
           }
         }
 
