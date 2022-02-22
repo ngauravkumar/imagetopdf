@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="front/css/remixicon.css" type="text/css">
   <link rel="stylesheet" href="front/style.css" type="text/css">
   <link rel="stylesheet" href="front/css/responsive.css" type="text/css">
-  <link rel="stylesheet" href="front/styles_file.css" type="text/css">
   <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -64,7 +63,6 @@
             <div class="form-group">
               <input type="file" name="files" multiple required class="form-control" id="fileElem" accept="image/*"
                 onchange="image_select()">
-              <div id="filedrag">or drop files here</div>
             </div>
             <div class="card-body d-flex flex-wrap justify-content-start" id="container">
 
@@ -126,7 +124,6 @@
     <script src="front/js/custom.js"></script>
     <script src="front/js/jquery-ui.min.js"></script>
     <script src="front/js/jquery.ui.touch-punch.min.js"></script>
-    <script src="front/filedrag.js"></script>
     <script type="text/javascript"
       src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script type="text/javascript">
@@ -139,7 +136,7 @@
 </html>
 <script>
 
-  // Selected image preview
+	// Selected image preview
   var images = [];
   function image_select() {
     var image = document.getElementById('fileElem').files;
@@ -181,7 +178,7 @@
     console.log(document.getElementById('fileElem').files);
   }
   // Selected image preview End
-
+  
   const range = document.getElementById("range");
 
   // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
