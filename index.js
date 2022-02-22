@@ -85,15 +85,17 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
       res.download(outputFilePath, (err) => {
         if (err) throw err
-        console.log(outputFilePath);
+        
         // delete the files which is stored
 
         req.files.forEach(file => {
           fs.unlinkSync(file.path)
         });
 
-        fs.unlinkSync(outputFilePath)
-
+        // fs.unlinkSync(outputFilePath)
+        res.send({
+          'file': outputFilePath
+        });
         //res.render('index', { message: req.flash('PDF Generate Successfully, And Download Automatically..') });
       })
     })
