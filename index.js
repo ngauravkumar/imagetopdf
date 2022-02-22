@@ -65,8 +65,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/merge', upload.array('files', 100), (req, res) => {
-  list = ""
-  console.log(req);
+  list = ""  
   if (req.files) {
 
     var range_value = parseFloat(req.body.range);
@@ -86,7 +85,7 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
       res.download(outputFilePath, (err) => {
         if (err) throw err
-
+        console.log(outputFilePath);
         // delete the files which is stored
 
         req.files.forEach(file => {
