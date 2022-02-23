@@ -102,7 +102,7 @@
               </div>
 
             </div>
-            
+
             <div class="form-group">
               <button class="btn btn-danger btn-block">
                 Convert to PDF
@@ -156,21 +156,29 @@
 </html>
 <script>
 
+  const dt = new DataTransfer(); // Permet de manipuler les fichiers de l'input file
+
+  $("#fileElem").on('change', function (e) {   
+    // Ajout des fichiers dans l'objet DataTransfer
+    for (let file of this.files) {
+      dt.items.add(file);
+    }
+    // Mise à jour des fichiers de l'input file après ajout
+    this.files = dt.files;
+  });
+
+
   // Selected image preview
   var images = [];
   function image_select() {
-    const dt = new DataTransfer()
     var image = document.getElementById('fileElem').files;
-    const { files } = image
     for (i = 0; i < image.length; i++) {
-      dt.items.add(image[i]);
       images.push({
         "name": image[i].name,
         "url": URL.createObjectURL(image[i]),
         "file": image[i],
       })
     }
-    image.files = dt.files;
     document.getElementById('container').innerHTML = image_show();
   }
 
