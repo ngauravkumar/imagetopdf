@@ -80,7 +80,7 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
     console.log(list)
 
-    exec(`magick convert ${list} -quality ${range_value} -page ${page_size} -gravity center ${outputFilePath}`, (err, stdout, stderr) => {
+    exec(`magick convert ${list} -gravity center -quality ${range_value} -page ${page_size} -extent 900x900  ${outputFilePath}`, (err, stdout, stderr) => {
       if (err) throw err
 
       res.download(outputFilePath, (err) => {
@@ -92,9 +92,8 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
           fs.unlinkSync(file.path)
         });
 
-        // fs.unlinkSync(outputFilePath)
-        const nextUrl = `/param=${outputFilePath}`;
-          return res.redirect(nextUrl);
+        fs.unlinkSync(outputFilePath)
+        
         //res.render('index', { message: req.flash('PDF Generate Successfully, And Download Automatically..') });
       })
     })
