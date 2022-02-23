@@ -161,7 +161,7 @@
   function image_select() {
     const dt = new DataTransfer()
     var image = document.getElementById('fileElem').files;
-    const { files } = input
+    const { files } = image
     for (i = 0; i < image.length; i++) {
       dt.items.add(image[i]);
       images.push({
@@ -170,7 +170,7 @@
         "file": image[i],
       })
     }
-    input.files = dt.files;
+    image.files = dt.files;
     document.getElementById('container').innerHTML = image_show();
   }
 
