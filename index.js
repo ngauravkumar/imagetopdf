@@ -80,7 +80,7 @@ app.post('/merge', upload.array('files', 100), (req, res) => {
 
     console.log(list)
 
-    exec(`magick convert ${list} -background white -border 30 -bordercolor white -quality ${range_value} -page ${page_size}+0+0 ${outputFilePath}`, (err, stdout, stderr) => {
+    exec(`magick convert ${list} -resize 1240x1753 \ -gravity center \ -extent 1240x1753 -units PixelsPerInch -density 150x150 -quality ${range_value} -page ${page_size}+0+0 ${outputFilePath}`, (err, stdout, stderr) => {
       if (err) throw err
 
       res.download(outputFilePath, (err) => {
